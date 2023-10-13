@@ -1,0 +1,19 @@
+.navbar {
+    background: linear-gradient(to bottom,#006dc4,#005191);
+    color: white;
+}
+
+.nav-text {
+    text-align: center;
+    justify-content: center;
+}
+
+.navbar .navbar-brand .navbar-logo {
+    height: 62px;
+    max-height: 62px;
+    padding: 0;
+}
+
+#pageContainer {
+    text-align: center;
+}
