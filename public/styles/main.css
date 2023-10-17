@@ -21,3 +21,8 @@
 #leftSide {
     padding-top: 15px;
 }
+
+#map {
+    height: 400px;
+    width: 1000px;
+}
