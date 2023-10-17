@@ -18,13 +18,19 @@
             </a>
             <p class="nav-text">Indiana 211 Resource Search System</p>
         </nav>
-        <div id="pageContainer" class="fluid-container justify-text-center">
+        <div id="pageContainer" class="container justify-text-center">
             
             <div class="row">
-                <div class="col-md-6">
-                    <p>Left side</p>
+                <div id="leftSide" class="col-md-6">
+                    <form>
+                        <div class="form-group">
+                          <label for="enterZipCode">Enter Zip Code</label>
+                          <input type="zipCode" class="form-control" id="enterZipCodeBox"placeholder="Enter zipcode">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
                 </div>
-                <div class="col-md-6">
+                <div id="rightSide" class="col-md-6">
                     <p>Right side</p>
                 </div>
             </div>
