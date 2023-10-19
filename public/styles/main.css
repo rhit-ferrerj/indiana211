@@ -15,6 +15,7 @@
 }
 
 #pageContainer {
+    margin-top: 10px;
     text-align: center;
 }
 
@@ -23,6 +24,6 @@
 }
 
 #map {
-    height: 400px;
-    width: 600px;
+    height: 200px;
+    width: 100%;
 }
