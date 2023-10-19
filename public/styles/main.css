@@ -1,11 +1,14 @@
 .navbar {
     background: linear-gradient(to bottom,#006dc4,#005191);
     color: white;
+    padding: 20px;
+    margin-right: 0px;
 }
 
 .nav-text {
     text-align: center;
     justify-content: center;
+    margin:20px;
 }
 
 .navbar .navbar-brand .navbar-logo {
@@ -24,6 +27,8 @@
 }
 
 #map {
-    height: 200px;
-    width: 100%;
+    margin: auto;
+    margin-top:30px;
+    height: 300px;
+    width: 80%;
 }
