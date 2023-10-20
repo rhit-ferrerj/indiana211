@@ -21,15 +21,8 @@ async function initMap(){
 
 initMap();
 
-let parsedData = null;
-
-const response = await fetch('us-county-boundaries.json');
-const data = await response.json();
-data.array.forEach(addToDropdown(element));
 const dropdown = document.getElementById("countySelector");
-
-function addToDropdown(county) {
-    const name = county.namelsad;
-    const newPart = document.createElement("option");
-    console.log(name);
-};
+const newOption = document.createElement("option");
+// newOption.innerHTML =
+console.log(newOption);
+dropdown.appendChild(newOption)
