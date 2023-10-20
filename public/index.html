@@ -34,14 +34,21 @@
                         </div>    
                     </form>
                     
-                    <label for="countySelector">Please select your county</label>
+                    <label for="countySelector" style="padding-top: 2vh">Please select your county</label>
                     <select name ="Select Dropdown" id="countySelector" class="form-control js-example-basic-single">
-                        <option value="AL">Alabama</option>
-                        <option value="AK">Alaska</option>
-                        <option value="AZ">test </option>
+                        <option value="C1">County 1</option>
+                        <option value="C2">County 2</option>
+                        <option value="C3">County 3</option>
                     </select>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <label for="serviceSelector" style="padding-top: 2vh;">What service are you looking for?</label>
+                    <select name ="Select Dropdown" id="serviceSelector" class="form-control js-example-basic-single">
+                        <option value="AL">Service 1</option>
+                        <option value="AK">Service 2</option>
+                        <option value="AZ">Service 3</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary" style="margin-top: 2vh;">Submit</button>
 
                 </div>
                 <div id="rightSide" class="col-md-6">
@@ -67,6 +74,13 @@
     <script>
         $(document).ready(function() {
             $('.js-example-basic-single').select2();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2({
+                dropdownParent: $('#leftSide')
+            });
         });
     </script>
     </body>
