@@ -35,6 +35,6 @@ initMap();
 
 const dropdown = document.getElementById("countySelector");
 const newOption = document.createElement("option");
-// newOption.innerHTML =
+console.log(data);
 console.log(newOption);
 dropdown.appendChild(newOption)
