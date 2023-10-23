@@ -37,3 +37,13 @@ padding: 20px;
 #logo{
     margin: 0px 10px;
 }
+
+table {
+    table-layout: fixed;
+    width: 100%;
+  }
+  
+table td {
+    width: 33.33%;
+    border: none;
+}
