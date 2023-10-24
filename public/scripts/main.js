@@ -31,10 +31,36 @@ async function initMap(){
 
 }
 
-initMap();
+const searchButton = document.getElementById("submitButton");
+const zipCodeEntry = document.getElementById("enterZipCodeBox");
+const countyEntryDropDown = document.getElementById("countySelector");
+const categoryDropdwon = document.getElementById("serviceSelector");
+searchButton.addEventListener('click', (e) => {
+    const zipCode = zipCodeEntry.value;
+    if (zipCode === "") {
+        console.log("No zip code provided");
+    }
+    const county = countyEntryDropDown.value;
+    const category = categoryDropdwon.value;
+    console.log(`ZIP: ${zipCode}, County: ${county}, Category: ${category}`);
+});
 
-const dropdown = document.getElementById("countySelector");
-const newOption = document.createElement("option");
-console.log(data);
-console.log(newOption);
-dropdown.appendChild(newOption)
+const countyName = "Vigo County";
+const apiKey = "AIzaSyAI6ezp2EJ9_ax8nEEGWU39I3EON_hEaLA";
+const endpoint = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(countyName)}&key=${apiKey}`;
+
+fetch(endpoint)
+  .then(response => response.json())
+  .then(data => {
+    if (data.status === "OK") {
+      const location = data.results[0].geometry.location;
+      const latitude = location.lat;
+      const longitude = location.lng;
+      console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+    } else {
+      console.error("Error occurred while fetching data.");
+    }
+  })
+  .catch(error => console.error("Error occurred:", error));
+
+initMap();
