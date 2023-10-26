@@ -8,7 +8,8 @@ padding: 20px;
 .nav-text {
     text-align: center;
     justify-content: center;
-    margin:20px;
+    margin:10px 20px;
+    font-size: 2vw;
 }
 
 .navbar .navbar-brand .navbar-logo {
@@ -23,8 +24,7 @@ padding: 20px;
 }
 
 #leftSide {
-    padding-top: 15px;
-    
+    padding-top: 15px;   
 }
 
 #map {
@@ -46,4 +46,8 @@ table {
 table td {
     width: 33.33%;
     border: none;
+}
+
+.select2{
+    width: 100% !important;
 }
