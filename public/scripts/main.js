@@ -37,17 +37,14 @@ const countyEntryDropDown = document.getElementById("countySelector");
 const categoryDropdwon = document.getElementById("serviceSelector");
 searchButton.addEventListener('click', (e) => {
     const zipCode = zipCodeEntry.value;
-    // const county = countyEntryDropDown.value;
-    const county = "Vigo County";
+    const county = countyEntryDropDown.value;
     const category = categoryDropdwon.value;
-    let location = [1,2];
-    if (zipCode === "") {
+    if (zipCode === "" || zipCode.length !== 5) {
         console.log("No zip code provided");
-        location = searchByTerm(county);
+        searchByTerm(county);
     } else {
-        location = searchByTerm(zipCode);
+        searchByTerm(zipCode);
     }
-    console.log(location);
 });
 
 function searchByTerm(term) {
@@ -61,16 +58,19 @@ function searchByTerm(term) {
         const location = data.results[0].geometry.location;
         const latitude = location.lat;
         const longitude = location.lng;
-        console.log(locationList[0]);
         locationList[0] = location.lat;
         locationList[1] = location.lng;
-        console.log(locationList[0]);
+        console.log(locationList);
         } else {
         console.error("Error occurred while fetching data.");
         }
     })
     .catch(error => console.error("Error occurred:", error));
-    return locationList;
+
+}
+
+function handleLocationAndCategory(location, category) {
+
 }
 
 initMap();
