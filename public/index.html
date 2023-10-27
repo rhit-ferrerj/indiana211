@@ -131,7 +131,7 @@
                     </select>
                     
                     <label for="serviceSelector" style="padding-top: 2vh;">What service are you looking for?</label>
-                    <select name ="Select Dropdown" id="serviceSelector" class="form-control js-example-basic-single">
+                    <select name ="Select Dropdown" id="serviceSelector" class="form-control js-example-basic-single" multiple="multiple">
                         <option value="Food Pantries">Food Pantries</option>
                         <option value="Food Vouchers">Food Vouchers</option>
                         <option value="Formula/Baby Food">Formula/Baby Food</option>
@@ -189,7 +189,8 @@
     <script>
         $(document).ready(function() {
             $('.js-example-basic-single').select2({
-                dropdownParent: $('#leftSide')
+                dropdownParent: $('#leftSide'),
+                closeOnSelect: false
             });
         });
     </script>
