@@ -51,3 +51,22 @@ table td {
 .select2{
     width: 100% !important;
 }
+
+#cardContainer {
+    text-align: left;
+    justify-content: left;
+}
+
+@media print {
+    .print-hide {
+        width: 0px;
+        height: 0px;
+        visibility: hidden;
+    }
+
+    .card {
+        position: absolute;
+        justify-self: center;
+        width: 150%;
+    }
+}

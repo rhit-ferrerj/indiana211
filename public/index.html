@@ -15,17 +15,18 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     </head>
     <body>
-        <nav class="navbar">
+        <nav class="navbar print-hide">
             <a class="navbar-brand" href="https://in211.communityos.org/">
                 <img id="logo" class="navbar-logo" src="https://in211.communityos.org/publicassets/logo.png" alt="Indiana 211 Logo">
             </a>
             <p class="nav-text">Indiana 211 Resource Search System</p>
         </nav>
         <div id="pageContainer" class="container justify-text-center justify-content-center">
-            <h1 style="margin-top: 20px;">Welcome to the Indiana 211 Resource Search System</h1>
-            <p>Using this service you will be able to search using your zipcode or current county by selecting a certain kind of service that satisfies your request.</p>
-            <p>If you cannot find the service you are looking for here please call 2-1-1 and one of our providers will be happy to assist in your search!</p>
-            <div class="row">
+            <h1 style="margin-top: 20px;" class="print-hide">Welcome to the Indiana 211 Resource Search System</h1>
+            <p class="print-hide">Using this service you will be able to search using your zipcode or current county by selecting a certain kind of service that satisfies your request.</p>
+            <p class="print-hide">If you cannot find the service you are looking for here please call 2-1-1 and one of our providers will be happy to assist in your search!</p>
+            <p class="print-hide">Using ctrl + p on computer </p>
+            <div class="row print-hide">
                 <div id="leftSide" class="col-md-6">
                     <form>
                         <div class="form-group">
@@ -147,20 +148,18 @@
                     <div id="map"></div>
                 </div>
             </div>
-            <div class="row" style="margin-top: 4vh;">
+            <div id="cardContainer" class="row" style="margin-top: 4vh;">
                 <div class="col-md-12">
                     <div class="card mb-3">
                         <div class="card-header">
-                          Name
+                          Serivce Name - url/address
                         </div>
                         <div class="card-body">
-                          <table class="table">
-                            <tr>
-                                <td>Example Location</td>
-                                <td>Example Service</td>
-                                <td>10 mi</td>
-                            </tr>
-                          </table>
+                          <p>Place Address</p>
+                          <p>Place Hours</p>
+                          <p>Place Eligibility</p>
+                          <p>Place Description</p>
+                          <p>Service Type</p>
                         </div>
                       </div>
                 </div>
