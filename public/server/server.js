@@ -29,14 +29,15 @@ app.get('/data/zip/:zip', (req, res) => {
     }
 });
 
-app.get('/data/county/:county', (req, res) => {
-    const cty = req.params.county;
-    const filteredData = jsonData.filter((item) => item.county === cty);
+app.get('/data/service', (req, res) => {
+    const {svc} = req.query;
 
-    if (filteredData.length > 0){
+    if (svc) {
+        const svcList = Array.isArray(svc) ? svc : [svc];
+        const filteredData = jsonData.filter(item => svcList.includes(item.service_name));
         res.json(filteredData);
     } else {
-        res.status(404).json({error: 'No data found for requested county'});
+        res.json(jsonData);
     }
 });
 
