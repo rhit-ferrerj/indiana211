@@ -73,4 +73,16 @@ function handleLocationAndCategory(location, category) {
 
 }
 
+fetch('taxonomies.txt').then(response => response.text()).then(text =>
+    {const rows = text.split('\n');
+    // const output = document.getElementById('output');
+
+    rows.forEach(function (row) {
+        console.log(row);
+        // const element = document.createElement('p');
+        // element.textContent = row;
+        // output.appendChild(element);
+    });
+})
+
 initMap();
