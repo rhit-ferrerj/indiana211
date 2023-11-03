@@ -75,7 +75,6 @@ function handleQuery(query) {
     fetch(query)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
         data.forEach(service => {
             cardContainer.innerHTML = cardContainer.innerHTML += `
             <div class="col-md-12">
@@ -84,7 +83,7 @@ function handleQuery(query) {
                           ${service.agency_name} - ${service.service_website !== "" ? `<a href=${service.service_website}>${service.service_website}</a>` : service.site_number} 
                         </div>
                         <div class="card-body">
-                          <p>Address: ${service.address_1}</p>
+                          <p>Address: ${service.address_1}, ${service.city}, IN</p>
                           <p>Schedule: ${service.site_schedule}</p>
                           <p>Eligibility: ${service.site_eligibility}</p>
                           <p>Description: ${service.agency_desc}</p>
