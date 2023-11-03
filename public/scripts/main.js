@@ -34,17 +34,18 @@ async function initMap(){
 const searchButton = document.getElementById("submitButton");
 const zipCodeEntry = document.getElementById("enterZipCodeBox");
 const countyEntryDropDown = document.getElementById("countySelector");
-const categoryDropdwon = document.getElementById("serviceSelector");
 searchButton.addEventListener('click', (e) => {
+    const categoryDropdwon = $('#serviceSelector').select2();
     const zipCode = zipCodeEntry.value;
     const county = countyEntryDropDown.value;
-    const category = categoryDropdwon.value;
+    const categories = categoryDropdwon.val();
+    let locationTerm = `zip=${zipCode}`;
     if (zipCode === "" || zipCode.length !== 5) {
-        console.log("No zip code provided");
-        searchByTerm(county);
-    } else {
-        searchByTerm(zipCode);
+        locationTerm = `county=${county.split(" ")[0]}`;
     }
+    const query = "http://localhost:3500/data?" + `${locationTerm}&` + `svc=${categories.join("&svc=")}`.replaceAll(" ", "%20");
+    handleQuery(query);
+    console.log(query);
 });
 
 function searchByTerm(term) {
@@ -69,20 +70,15 @@ function searchByTerm(term) {
 
 }
 
-function handleLocationAndCategory(location, category) {
-
+function handleQuery(query) {
+    fetch(query)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        data.forEach(service => {
+            console.log(service.service_description);
+        })
+    })
 }
-
-fetch('taxonomies.txt').then(response => response.text()).then(text =>
-    {const rows = text.split('\n');
-    // const output = document.getElementById('output');
-
-    rows.forEach(function (row) {
-        console.log(row);
-        // const element = document.createElement('p');
-        // element.textContent = row;
-        // output.appendChild(element);
-    });
-})
 
 initMap();

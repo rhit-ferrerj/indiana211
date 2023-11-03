@@ -165,6 +165,19 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                $('#countySelector').select2();
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('#serviceSelector').select2({
+                    dropdownParent: $('#leftSide'),
+                    closeOnSelect: false
+                });
+            });
+        </script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js' integrity='sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg==' crossorigin='anonymous'></script>
         <script src="scripts/main.js" async defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -179,19 +192,5 @@
             a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));
             d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
             ({key: "AIzaSyAI6ezp2EJ9_ax8nEEGWU39I3EON_hEaLA", v: "beta"});</script> -->
-
-    <script>
-        $(document).ready(function() {
-            $('.js-example-basic-single').select2();
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('.js-example-basic-single').select2({
-                dropdownParent: $('#leftSide'),
-                closeOnSelect: false
-            });
-        });
-    </script>
     </body>
 </html>

@@ -60,8 +60,9 @@ app.get('/data', (req, res) => {
 
     if (svc) {
         const svcList = Array.isArray(svc) ? svc : [svc];
-        filteredData = filteredData.filter(item => svcList.includes(item.service_name));
+        filteredData = filteredData.filter(item => svcList.includes(item.taxonomy_name));
     }
+    res.header('Access-Control-Allow-Origin', '*');
     res.json(filteredData);
 });
 
