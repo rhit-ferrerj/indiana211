@@ -80,7 +80,7 @@ function handleQuery(query) {
             <div class="col-md-12">
                     <div class="card mb-3">
                         <div class="card-header">
-                          ${service.agency_name} - ${service.service_website !== "" ? `<a href=${service.service_website}>${service.service_website}</a>` : service.site_number} 
+                          ${service.site_name} - ${service.service_website !== "" ? `<a href=${service.service_website}>${service.service_website}</a>` : service.site_number} 
                         </div>
                         <div class="card-body">
                           <p>Address: ${service.address_1}, ${service.city}, IN</p>
