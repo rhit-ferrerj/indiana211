@@ -45,7 +45,6 @@ searchButton.addEventListener('click', (e) => {
     }
     const query = "http://localhost:3500/data?" + `${locationTerm}&` + `svc=${categories.join("&svc=")}`.replaceAll(" ", "%20");
     handleQuery(query);
-    console.log(query);
 });
 
 function searchByTerm(term) {
@@ -71,14 +70,46 @@ function searchByTerm(term) {
 }
 
 function handleQuery(query) {
+    const cardContainer = document.getElementById("cardContainer");
+    cardContainer.innerHTML = "";
     fetch(query)
     .then(response => response.json())
     .then(data => {
         console.log(data);
         data.forEach(service => {
-            console.log(service.service_description);
+            cardContainer.innerHTML = cardContainer.innerHTML += `
+            <div class="col-md-12">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                          ${service.agency_name} - ${service.service_website !== "" ? `<a href=${service.service_website}>${service.service_website}</a>` : service.site_number} 
+                        </div>
+                        <div class="card-body">
+                          <p>Address: ${service.address_1}</p>
+                          <p>Schedule: ${service.site_schedule}</p>
+                          <p>Eligibility: ${service.site_eligibility}</p>
+                          <p>Description: ${service.agency_desc}</p>
+                          <p>Service Type: ${service.taxonomy_name}</p>
+                        </div>
+                    </div>
+                </div>`
+        })
+        if (cardContainer.innerHTML === "") {
+            cardContainer.innerHTML = "<h1>SEARCH RETURNED NO RESULTS</h1>"
+        }
+    })
+}
+
+function getTaxonomies() {
+    const serviceSelector = document.getElementById("serviceSelector");
+    serviceSelector.innerHTML = "";
+    fetch("http://localhost:3500/taxonomies")
+    .then(response => response.json())
+    .then(dataArray => {
+        dataArray.forEach(tax => {
+            serviceSelector.innerHTML = serviceSelector.innerHTML += `<option value="${tax}">${tax}</option>`
         })
     })
 }
 
 initMap();
+getTaxonomies();

@@ -66,6 +66,12 @@ app.get('/data', (req, res) => {
     res.json(filteredData);
 });
 
+app.get('/taxonomies', (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    const tax = fs.readFileSync('taxonomies.txt', 'utf-8').replaceAll("\r", "").split("\n");
+    res.send(tax);
+})
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 })
