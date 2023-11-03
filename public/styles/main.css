@@ -64,6 +64,14 @@ table td {
     margin-top: 25px;
 }
 
+.card-header {
+    font-family: Arial, Helvetica, sans-serif !important;
+    background-color: #cacaca !important;
+    font-weight: bold;
+}
+.card-body {
+    background-color: #f8f8f8 !important;
+}
 @media print {
     .print-hide {
         width: 0px;
@@ -72,6 +80,13 @@ table td {
     }
 
     .card {
-        justify-self: center;
+        justify-content: center;
+        width: 100% !important;
+    }
+    #pageContainer {
+        width: 100% !important;
+    }
+    .card-container {
+        width: 100% !important;
     }
 }
