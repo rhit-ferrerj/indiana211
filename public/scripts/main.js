@@ -15,14 +15,19 @@ let map;
 async function initMap(markerList){
     const { Map } = await google.maps.importLibrary("maps");
 
+    var numMarkers = Object.keys(markerList).length;
+
     map = new Map(document.getElementById("map"), {
         zoom: 7,
         center: {lat: 39.77463, lng: -86.22029},
         mapId: "DEMO_MAP_ID",
     });
 
-    console.log(Object.keys(markerList).length);
-    if (Object.keys(markerList).length > 0 && Object.keys(markerList).length < 25){
+    var bounds = new google.maps.LatLngBounds();
+
+    console.log(numMarkers);
+
+    if (numMarkers > 0){
         for (const key in markerList){
             if (markerList.hasOwnProperty(key)){
                 var marker = new google.maps.Marker({
@@ -31,9 +36,18 @@ async function initMap(markerList){
                     map: map,
                     optimized: true 
                 });
+                bounds.extend(marker.getPosition());
             }
         }
+        map.setCenter(bounds.getCenter());
+    
+        if (Object.keys(markerList).length === 1) {
+            map.setZoom(13);
+        } else {
+            map.fitBounds(bounds);
+        }
     }
+
 }
 
 const searchButton = document.getElementById("submitButton");
