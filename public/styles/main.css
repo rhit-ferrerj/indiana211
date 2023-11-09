@@ -76,7 +76,14 @@ table td {
     .print-hide {
         width: 0px;
         height: 0px;
-        visibility: hidden;
+        padding: 0;
+        margin: 0;
+        display: none;
+    }
+
+    table {
+        visibility: visible !important;
+        display: table !important;
     }
 
     .card {
@@ -90,3 +97,17 @@ table td {
         width: 100% !important;
     }
 }
+
+
+
+table {
+    border-collapse: separate;
+    border-spacing: 10px 0; /* 10px spacing between rows, 0 spacing between columns */
+    width: 100%; /* Make the table take up 100% of its container */
+    visibility: hidden;
+    display: none;
+  }
+
+  td, th {
+    padding: 1vw 10px; /* 1% of viewport width for dynamic column padding, 10px for static row padding */
+  }

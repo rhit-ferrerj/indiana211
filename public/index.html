@@ -17,11 +17,11 @@
     <body>
         <nav class="navbar print-hide">
             <a class="navbar-brand" href="https://in211.communityos.org/">
-                <img id="logo" class="navbar-logo" src="https://in211.communityos.org/publicassets/logo.png" alt="Indiana 211 Logo">
+                <img id="logo" class="navbar-logo print-hide" src="https://in211.communityos.org/publicassets/logo.png" alt="Indiana 211 Logo">
             </a>
-            <p class="nav-text">Indiana 211 Resource Search System</p>
+            <p class="nav-text print-hide">Indiana 211 Resource Search System</p>
         </nav>
-        <div id="pageContainer" class="container justify-text-center justify-content-center">
+        <div id="pageContainer" class="container justify-text-center justify-content-center print-hide">
             <h1 style="margin-top: 20px;" class="print-hide">Welcome to the Indiana 211 Resource Search System</h1>
             <p class="print-hide">Using this service you will be able to search using your zipcode or current county by selecting a certain kind of service that satisfies your request.</p>
             <p class="print-hide">If you cannot find the service you are looking for here please call 2-1-1 and one of our providers will be happy to assist in your search!</p>
@@ -142,15 +142,31 @@
 
                     <button id="submitButton" type="submit" class="btn btn-primary" style="margin-top: 2vh;">Submit</button>
 
+                    <button type="button" class="btn btn-primary custom-btn" onclick="togglePrint(this)">Print Mode</button>
                 </div>
                 <div id="rightSide" class="col-md-6">
                     <div id="map"></div>
                 </div>
             </div>
+            
+            
             <div id="cardContainer" class="row" style="margin-top: 4vh;">
                 
             </div>
+            
         </div>
+        <table id="myTable">
+            <thead>
+            <tr>
+                <th>Service Type</th>
+                <th>Site Name</th>
+                <th>Address</th>
+                <th>Schedule</th>
+                <th>Eligibility</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
         <script>
             $(document).ready(function() {
                 $('#countySelector').select2();

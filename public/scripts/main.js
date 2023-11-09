@@ -127,6 +127,22 @@ function handleQuery(query) {
                         </div>
                     </div>
                 </div>`;
+
+                let tableBody = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+
+                let newRow = tableBody.insertRow(tableBody.rows.length);
+
+                let cell5 = newRow.insertCell(0);
+                let cell1 = newRow.insertCell(1);
+                let cell2 = newRow.insertCell(2);
+                let cell3 = newRow.insertCell(3);
+                let cell4 = newRow.insertCell(4);
+
+                cell1.innerHTML = service.site_name;
+                cell2.innerHTML = `${service.address_1}, ${service.city}`;
+                cell3.innerHTML = service.site_schedule;
+                cell4.innerHTML = service.site_eligibility;
+                cell5.innerHTML = service.taxonomy_name;
             });
             if (cardContainer.innerHTML === "") {
                 cardContainer.innerHTML = "<h1>SEARCH RETURNED NO RESULTS</h1>";
@@ -145,6 +161,13 @@ function getTaxonomies() {
         })
     });
 }
+
+function togglePrint(button) {
+    button.classList.toggle('selected');
+    
+    window.print();
+}
+
 
 initMap({});
 getTaxonomies();
