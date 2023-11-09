@@ -72,7 +72,7 @@ function searchByTerm(term) {
         })
         .catch(error => {
             console.error("Error occurred:", error);
-            throw error;
+            return;
         });
 }
 
@@ -85,7 +85,7 @@ function handleQuery(query) {
         .then(response => response.json())
         .then(data => {
             const searchPromises = data.map(service => {
-                return searchByTerm(`${service.address_1}%20${service.city}%20IN`)
+                return searchByTerm(`${service.address_1},${service.city},IN`)
                     .then(locationList => {
                         markerDict[service.site_name] = locationList;
                     })
