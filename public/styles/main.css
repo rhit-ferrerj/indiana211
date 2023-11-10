@@ -84,8 +84,18 @@ table td {
     table {
         visibility: visible !important;
         display: table !important;
+        border: 1.5px solid !important;
+        page-break-inside: auto;
     }
-
+    table :nth-child(6n){
+        page-break-after: always;
+    }
+    th td{
+        visibility: visible !important;
+        display: table !important;
+        border: 1.5px solid !important;
+    }
+ 
     .card {
         justify-content: center;
         width: 100% !important;
@@ -101,13 +111,5 @@ table td {
 
 
 table {
-    border-collapse: separate;
-    border-spacing: 10px 0; /* 10px spacing between rows, 0 spacing between columns */
-    width: 100%; /* Make the table take up 100% of its container */
-    visibility: hidden;
     display: none;
-  }
-
-  td, th {
-    padding: 1vw 10px; /* 1% of viewport width for dynamic column padding, 10px for static row padding */
   }
