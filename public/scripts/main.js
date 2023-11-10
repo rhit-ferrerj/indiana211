@@ -138,7 +138,7 @@ function handleQuery(query) {
                 let cell4 = newRow.insertCell(4);
 
                 cell1.innerHTML = service.site_name;
-                cell2.innerHTML = `${service.address_1}, ${service.city}`;
+                cell2.innerHTML = `${service.address_1}, ${service.city}, IN - ${service.site_number}`;
                 cell3.innerHTML = service.site_schedule;
                 cell4.innerHTML = service.site_eligibility;
                 cell5.innerHTML = service.taxonomy_name;
