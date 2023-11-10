@@ -111,6 +111,8 @@ function handleQuery(query) {
                 })
         })
         .then(data => {
+            let tableBody = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = "";
             data.forEach(service => {
                 cardContainer.innerHTML += `
                 <div class="col-md-12">
@@ -127,9 +129,6 @@ function handleQuery(query) {
                         </div>
                     </div>
                 </div>`;
-
-                let tableBody = document.getElementById("myTable").getElementsByTagName('tbody')[0];
-
                 let newRow = tableBody.insertRow(tableBody.rows.length);
 
                 let cell5 = newRow.insertCell(0);
